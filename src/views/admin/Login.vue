@@ -29,7 +29,7 @@
              this.loadStore.setLoader(false);
              this.loader = false
              if (this.authStore.isAuthenticated) {
-                this.$router.push('/');
+                this.$router.push('/admin/dashboard');
              }
           } catch (error) {
              console.error(error);
