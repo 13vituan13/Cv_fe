@@ -10,6 +10,8 @@ import Projects from '../../components/user/Projects.vue'
 import Counters from '../../components/user/Counters.vue'
 import Contact from '../../components/user/Contact.vue'
 
+// Style Css
+import '../../assets/css/style.css'
 import { onMounted } from 'vue'
 import $ from 'jquery'
 

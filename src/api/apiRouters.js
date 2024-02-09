@@ -1,6 +1,6 @@
 // src/api/apiRouters.js
-const HOST = 'http://192.168.1.3:8001/api/'
-export const HOST_IMG = 'http://192.168.1.3:8001/images/'
+const HOST = 'http://127.0.0.1:8000/api/'
+export const HOST_IMG = 'http://127.0.0.1:8000/images/'
 
 const Group = {
     User: "users/",

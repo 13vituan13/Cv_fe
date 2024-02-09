@@ -12,11 +12,10 @@ import 'bootstrap/dist/js/bootstrap.bundle'
 // Bootstrap icon
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
-// Style Css
-import './assets/css/style.css'
+// Common Css
 import './assets/css/animation.css'
 
-// Vue Sweet alert 2
+// Vue Sweet alert 2 Css
 import 'sweetalert2/dist/sweetalert2.min.css';
 
 // Config Sweet alert in App
