@@ -1,3 +1,14 @@
+<script>
+export default {
+  name: 'Personal',
+  props: {
+    personalInfo: {
+      type: Object,
+      default: null,
+    },
+  },
+};
+</script>
 <template>
     <section id="PERSONAL" class="elementor-section mt-5 has-pad animated fadeIn">
         <div class="row">
@@ -10,8 +21,8 @@
                     </div>
                     <div class="elementor-element elementor-widget">
                         <div class="elementor-widget-container">
-                            <h1 class="elementor-heading-title">
-                                Quách Vĩ Tuấn
+                            <h1 v-if="personalInfo" class="elementor-heading-title">
+                                {{ personalInfo.user_name }}
                             </h1>
                         </div>
                     </div>
@@ -29,7 +40,7 @@
                     </div>
                     <div class="elementor-element">
                         <div class="elementor-widget-container">
-                            Điện Thoại: <span>0867624470</span>
+                            Điện Thoại: <span>{{ personalInfo.phone }}</span>
                         </div>
                     </div>
                     <div class="elementor-element">

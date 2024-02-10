@@ -1,11 +1,14 @@
-// src/store/user.js
+// src/stores/user.js
 import { defineStore } from 'pinia';
 import { API_ROUTER } from '../api/apiRouters'
+import router from '../router/index'
 import Axios  from '../api/axios'
+import commonFunction  from '../assets/js/common'
 
-export const userStore = defineStore('user', {
+export const useUserStore = defineStore('user', {
   state: () => ({
     userList: [],
+    userCv: [],
     pagination: {
       total: 0,
       per_page: 2,
@@ -15,22 +18,19 @@ export const userStore = defineStore('user', {
     },
   }),
   actions: {
-    async getAll(page) {
+    async getCv(id) {
       try {
-        const response = await Axios.get(API_ROUTER.User.getAll, {
-          page: page
-        });
-        let status = response.status
+        const response = await Axios.get(API_ROUTER.User.getCv + '/' + id);
+        let status = response.status;
         if (status === 200) {
-            this.userList = response.data.user_list.data;
-            this.pagination = response.data.user_list;
-            console.log(this.pagination)
+            this.userCv = response.data;
         } else {
-            this.userList = [];
+            this.userCv = [];
         }
       } catch (error) {
-        this.userList = [];
+        console.error(error);
+        this.userCv = [];
       }
-    }
+    },
   },
 });

@@ -4,6 +4,8 @@ export const HOST_IMG = 'http://127.0.0.1:8000/images/'
 
 const Group = {
     User: "users/",
+    Skill: "skills/",
+    
 }
 
 export const API_ROUTER = {
@@ -12,6 +14,12 @@ export const API_ROUTER = {
 
     //User
     User : {
-        getAll  : HOST + Group.User
+        getAll  : HOST + Group.User,
+        getCv   : HOST + Group.User + "get_cv",
+    },
+
+    //Skill
+    Skill : {
+        getAll  : HOST + Group.Skill,
     },
 }

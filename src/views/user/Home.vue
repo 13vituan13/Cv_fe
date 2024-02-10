@@ -10,10 +10,17 @@ import Projects from '../../components/user/Projects.vue'
 import Counters from '../../components/user/Counters.vue'
 import Contact from '../../components/user/Contact.vue'
 
+import Loading from '../../components/Loading.vue'
+import { useUserStore } from '../../stores/user';
+import { useLoadStore } from '../../stores/load';
+
 // Style Css
 import '../../assets/css/style.css'
 import { onMounted } from 'vue'
 import $ from 'jquery'
+
+const userStore = useUserStore();
+const loadStore = useLoadStore();
 
 onMounted(() => {
     setupSmoothScroll()
@@ -98,7 +105,40 @@ function setupReveal() {
     });
 }
 </script>
-
+<script>
+export default {
+    name: 'Home',
+    data() {
+       return {
+          infoUser: [],
+          loader: false
+       };
+    },
+    computed: {
+        loadStore() {
+            return useLoadStore();
+        },
+        userStore() {
+            return useUserStore();
+        },
+    },
+    methods: {
+        async getCv(id) {
+          try {
+             this.loadStore.setLoader(true);
+             await this.userStore.getCv(1);
+             this.infoUser = this.userStore.userCv
+             this.loadStore.setLoader(false);
+          } catch (error) {
+             console.error(error);
+             this.loadStore.setLoader(false);
+          }
+       },
+    },
+    async created() {
+        await this.getCv(1)
+    }, 
+ };</script>
 <template>
     <main id="site-main">
         <!-- <header id="masthead-mobile" class="site-main__header standard">
@@ -133,8 +173,7 @@ function setupReveal() {
                                         <div class="entry-content">
                                             <!-- Open elementor -->
                                             <div class="elementor">
-
-                                                <Personal />
+                                                <Personal :personalInfo="infoUser"/>
 
                                                 <CvDownLoad />
 
@@ -205,4 +244,6 @@ function setupReveal() {
     <div id="scroll-down" class="scroll-down">
         <i class="icon bi bi-arrow-down"></i>
     </div>
+    <!-- LOADING -->
+    <Loading v-if="loadStore.loader" />
 </template>
