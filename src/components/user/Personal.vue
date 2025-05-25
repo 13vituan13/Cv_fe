@@ -35,7 +35,7 @@ export default {
                     </div>
                     <div class="elementor-element">
                         <div class="elementor-widget-container">
-                            Ngày Sinh: <span>15/12/1997</span>
+                            Ngày Sinh: <span>{{ personalInfo.birthday }}</span>
                         </div>
                     </div>
                     <div class="elementor-element">
@@ -45,13 +45,12 @@ export default {
                     </div>
                     <div class="elementor-element">
                         <div class="elementor-widget-container">
-                            Email: <span>qvituan13@gmail.com</span>
+                            Email: <span>{{ personalInfo.email }}</span>
                         </div>
                     </div>
                     <div class="elementor-element">
                         <div class="elementor-widget-container">
-                            Địa chỉ: <span>Quận Tân Phú, TP. Hồ Chí
-                                Minh.</span>
+                            Địa chỉ: <span>{{ personalInfo.address }}</span>
                         </div>
                     </div>
                     <div class="elementor-element">
@@ -61,7 +60,7 @@ export default {
                     </div>
                     <div class="elementor-element">
                         <div class="elementor-widget-container">
-                            Kinh nghiệm: <span>2 năm</span>
+                            Kinh nghiệm: <span>{{ personalInfo.experience }} năm</span>
                         </div>
                     </div>
                 </div>
